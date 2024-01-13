@@ -6,9 +6,9 @@ class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      minutes: 1,
-      seconds: 1,
-      isOn: false,
+      minutes: 25,
+      seconds: 0,
+      isOn: false, 
     };
 
     this.startTimer = this.startTimer.bind(this);
