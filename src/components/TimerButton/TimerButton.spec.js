@@ -2,24 +2,30 @@
 import React from "react";
 import { shallow } from "enzyme";
 import TimerButton from "./TimerButton";
-import checkPropTypes from "check-prop-types"
 
 const setUp = (props = {}) => {
-    const component = shallow(<TimerButton {...props} />);
-    return component;
+  const component = shallow(<TimerButton {...props} />);
+  return component;
 };
 
 describe("Unit Testing of Timer Button", () => {
-    let timerButton_component;
-    beforeEach(() => {
-        //timerButton_component = setUp();
-    });
+  let timerButton_component;
+  let props = {
+    buttonAction: () => {
+      console.log("test");
+    },
+    buttonValue: "test",
+  };
+  beforeEach(() => {
+    timerButton_component = setUp(props);
+  });
   it("Check Rendering of Timer Button", () => {
     // should include one div element
-    // should include one p element
-  });
+    const outerContainer = timerButton_component.find(".button-container");
+    expect(outerContainer.length).toEqual(1);
 
-    it("Checking Proptypes", () => {
-      const propsErr=checkPropTypes
+    // should include one p element
+    const innerContainer = timerButton_component.find(".button-value");
+    expect(innerContainer.length).toEqual(1);
   });
 });

@@ -8,8 +8,9 @@ import App from "./App";
 describe("App Component", () => {
   it("Should render without error, check <Timer/> ", () => {
     const component = shallow(<App />);
-    console.log(component.debug());
+    // console.log(component.debug());
     const container = component.find(".app-container").children(); // return 1, because only 1 <Timer/>
+    // console.log(container.debug());
     expect(container.length).toBe(1);
   });
 });
